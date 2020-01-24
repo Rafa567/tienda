@@ -6,14 +6,13 @@ const app = express();
 
 
 // CONEXIÓN A BASE DE DATOS
-mongoose.connect("mongodb://localhost:27017/tienda", { useNewUrlParser: true })
+mongoose.connect("mongodb+srv://rafa567:entrar@cluster0-bvkww.mongodb.net/tienda?retryWrites=true&w=majority ")
     .then(db => console.log("Conexión a BD correcta"))
     .catch(error => console.log("Error al conectarse a la BD" + error));
 
-
-// MIDDLEWARE
-app.use(express.json());    // IMPORTANTE: Poner esto antes de las rutas
-app.use('/api', apiRoutes);
+    // MIDDLEWARE
+    app.use(express.json());   
+    app.use('/api', apiRoutes);
 
 
 // SERVIDOR WEB
